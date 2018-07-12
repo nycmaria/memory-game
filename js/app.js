@@ -37,9 +37,16 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 var allCards = document.querySelectorAll('.card');
+var openCards = [];
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e)  {
-    card.classList.add('open', 'show');
+    openCards.push(card);
+
+    if (openCards.length >= 2) {
+      // hide
+    } else {
+      card.classList.add('open', 'show');
+    }
   });
 });
