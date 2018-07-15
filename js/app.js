@@ -42,11 +42,16 @@ var openCards = [];
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e)  {
     openCards.push(card);
+    card.classList.add('open', 'show');
 
-    if (openCards.length >= 2) {
-      // hide
-    } else {
-      card.classList.add('open', 'show');
+    if (openCards.length == 2) {
+      setTimeout(function() {
+        openCards.forEach(function(card) {
+          card.classList.remove('open', 'show');
+        });
+
+        openCards = [];
+      }, 1000);
     }
   });
 });
